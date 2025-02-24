@@ -13,8 +13,8 @@
 
     
 
-//tax bracket logic
-
+    //tax bracket logic
+    
     if( $gross_salary <= 10000):
         
         $tax_deduction = $gross_salary * (TAX_BRACKET_10000/100);
