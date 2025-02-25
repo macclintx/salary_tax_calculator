@@ -1,17 +1,19 @@
 <?php
 
-    $gross_salary = readline(("Enter you salary: "));
+//input validation
+    $gross_salary =  isset($_POST["gross_salary"]) && is_numeric($_POST["gross_salary"]) ? $_POST["gross_salary"] : 0;
+
     $tax_deduction = 0;
     $net_salary = 0;
     $tax_bracket = 0;
-    $bonus_allowance =0;
+    $bonus_allowance = 0;
 
 
     define('TAX_BRACKET_10000',0);    
     define('TAX_BRACKET_10001_25000',10);
     define('TAX_BRACKET_25001_50000',20);
     define('TAX_BRACKET_50000',30);
-    
+   
    
     
 
@@ -50,9 +52,15 @@
         $bonus_allowance = 5000;
 
         $net_salary += $bonus_allowance;
+    elseif ( $gross_salary <= 0):
+
+        $bonus_allowance = 0 ;
+        $net_salary += $bonus_allowance; 
     endif;
  
 
+
+/*  
 
     echo "\nGross Salary: Ksh $gross_salary\n";
     echo "Tax Deductions: Ksh $tax_deduction (";
@@ -60,12 +68,14 @@
     echo "%)\n";
 
 
+
 //only show allowance message if bonus was applied
     if( $bonus_allowance > 0):
 
         switch ($bonus_allowance):
             case 2000;
-            echo "Transport allowance: $bonus_allowance\n";
+            //echo "Transport allowance: $bonus_allowance\n";
+
             break;
         
             case 5000:
@@ -75,4 +85,8 @@
     
     endif;
     
-    echo "Net Salary: Ksh $net_salary"; 
+    echo "Net Salary: Ksh $net_salary";   
+    
+    */
+
+    require "index.view.php";
