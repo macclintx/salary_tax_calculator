@@ -17,7 +17,7 @@
    
     
 
-    //tax bracket logic
+    //tax bracket logic implementation
     
     if( $gross_salary <= 10000):
         
